@@ -1,7 +1,7 @@
 ### Collector for MIMU's Datasets
 [![Build Status](https://travis-ci.org/OCHA-DAP/hdxscraper-mimu.svg?branch=master&ts=1)](https://travis-ci.org/OCHA-DAP/hdxscraper-mimu) [![Coverage Status](https://coveralls.io/repos/github/OCHA-DAP/hdxscraper-mimu/badge.svg?branch=master&ts=1)](https://coveralls.io/github/OCHA-DAP/hdxscraper-mimu?branch=master)
 
-Collector designed to collect MIMU datasets from the [MIMU](http://) website and to automatically register datasets on the [Humanitarian Data Exchange](http://data.humdata.org/) project.
+This script connects to the [MIMU API](https://geonode.themimu.info/layers/) and extracts data layer by layer creating a dataset per layer in HDX. It makes 1 read from IDMC and 250 read/writes (API calls) to HDX in a one hour period. It is run every year.
 
 ### Usage
 python run.py
