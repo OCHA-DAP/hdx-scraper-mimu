@@ -1,5 +1,5 @@
 ### Collector for MIMU's Datasets
-[![Build Status](https://travis-ci.org/OCHA-DAP/hdxscraper-mimu.svg?branch=master&ts=1)](https://travis-ci.org/OCHA-DAP/hdxscraper-mimu) [![Coverage Status](https://coveralls.io/repos/github/OCHA-DAP/hdxscraper-mimu/badge.svg?branch=master&ts=1)](https://coveralls.io/github/OCHA-DAP/hdxscraper-mimu?branch=master)
+[![Build Status](https://travis-ci.org/OCHA-DAP/hdx-scraper-mimu.svg?branch=master&ts=1)](https://travis-ci.org/OCHA-DAP/hdx-scraper-mimu) [![Coverage Status](https://coveralls.io/repos/github/OCHA-DAP/hdx-scraper-mimu/badge.svg?branch=master&ts=1)](https://coveralls.io/github/OCHA-DAP/hdx-scraper-mimu?branch=master)
 
 This script connects to the [MIMU API](https://geonode.themimu.info/layers/) and extracts data layer by layer creating a dataset per layer in HDX. It makes 1 read from MIMU and 250 read/writes (API calls) to HDX in a one hour period. It is run every year.
 
