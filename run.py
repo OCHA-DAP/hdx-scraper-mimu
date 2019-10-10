@@ -8,9 +8,8 @@ import logging
 from os.path import join, expanduser
 
 from hdx.hdx_configuration import Configuration
+from hdx.scraper.geonode.geonodetohdx import GeoNodeToHDX
 from hdx.utilities.downloader import Download
-
-from mimu import generate_dataset_and_showcase, get_layersdata
 
 from hdx.facades.simple import facade
 
@@ -24,10 +23,11 @@ def main():
 
     with Download() as downloader:
         base_url = Configuration.read()['base_url']
-        layersdata = get_layersdata(base_url, downloader)
-        logger.info('Number of datasets to upload: %d' % len(layersdata))
-        for layerdata in layersdata:
-            dataset, showcase = generate_dataset_and_showcase(base_url, layerdata)
+        geonodetohdx = GeoNodeToHDX(base_url, downloader)
+        layers = geonodetohdx.get_layers()
+        logger.info('Number of datasets to upload: %d' % len(layers))
+        for layer in layers:
+            dataset, showcase = geonodetohdx.generate_dataset_and_showcase('MMR', layer, '196196be-6037-4488-8b71-d786adf4c081', 'bde18602-2e92-462a-8e88-a0018a7b13f9', 'MIMU')
             if dataset:
                 dataset.update_from_yaml()
                 dataset.create_in_hdx(remove_additional_resources=True)
