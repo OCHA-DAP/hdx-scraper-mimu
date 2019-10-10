@@ -43,7 +43,7 @@ class TestMIMU:
         Locations.set_validlocations([{'name': 'mmr', 'title': 'Myanmar'}])  # add locations used in tests
         Country.countriesdata(False)
         Vocabulary._tags_dict = True
-        Vocabulary._approved_vocabulary = {'tags': [{'name': 'populated places - settlements'}, {'name': 'land use and land cover'}], 'id': '4e61d464-4943-4e97-973a-84673c1aaa87', 'name': 'approved'}
+        Vocabulary._approved_vocabulary = {'tags': [{'name': 'geodata'}, {'name': 'populated places - settlements'}, {'name': 'land use and land cover'}], 'id': '4e61d464-4943-4e97-973a-84673c1aaa87', 'name': 'approved'}
 
     @pytest.fixture(scope='function')
     def downloader(self):
@@ -72,7 +72,7 @@ class TestMIMU:
         assert dataset == {'name': 'mimu-myanmar-town-2019-july', 'title': 'Myanmar Town 2019 July',
                            'notes': 'Towns are urban areas divided into wards.\n\nPlace name from GAD, transliteration by MIMU. Names available in Myanmar Unicode 3 and Roman script.',
                            'maintainer': '196196be-6037-4488-8b71-d786adf4c081', 'owner_org': 'bde18602-2e92-462a-8e88-a0018a7b13f9', 'dataset_date': '08/05/2019',
-                           'data_update_frequency': '-2', 'subnational': '1', 'groups': [{'name': 'mmr'}], 'tags': [{'name': 'populated places - settlements', 'vocabulary_id': '4e61d464-4943-4e97-973a-84673c1aaa87'}]}
+                           'data_update_frequency': '-2', 'subnational': '1', 'groups': [{'name': 'mmr'}], 'tags': [{'name': 'geodata', 'vocabulary_id': '4e61d464-4943-4e97-973a-84673c1aaa87'}, {'name': 'populated places - settlements', 'vocabulary_id': '4e61d464-4943-4e97-973a-84673c1aaa87'}]}
         resources = dataset.get_resources()
         assert resources == [{'name': 'Myanmar Town 2019 July shapefile', 'url': 'http://xxx/geoserver/wfs?format_options=charset:UTF-8&typename=geonode%3Ammr_town_2019_july&outputFormat=SHAPE-ZIP&version=1.0.0&service=WFS&request=GetFeature',
                               'description': 'Zipped Shapefile. Towns are urban areas divided into wards.', 'format': 'zipped shapefile', 'resource_type': 'api', 'url_type': 'api'},
@@ -80,13 +80,13 @@ class TestMIMU:
                               'description': 'GeoJSON file. Towns are urban areas divided into wards.', 'format': 'geojson', 'resource_type': 'api', 'url_type': 'api'}]
         assert showcase == {'name': 'mimu-myanmar-town-2019-july-showcase', 'title': 'Myanmar Town 2019 July', 'notes': 'Towns are urban areas divided into wards.',
                             'url': 'http://geonode.themimu.info/layers/geonode%3Ammr_town_2019_july', 'image_url': 'http://geonode.themimu.info/uploaded/thumbs/layer-3bc1761a-b7f7-11e9-9231-42010a80000c-thumb.png',
-                            'tags': [{'name': 'populated places - settlements', 'vocabulary_id': '4e61d464-4943-4e97-973a-84673c1aaa87'}]}
+                            'tags': [{'name': 'geodata', 'vocabulary_id': '4e61d464-4943-4e97-973a-84673c1aaa87'}, {'name': 'populated places - settlements', 'vocabulary_id': '4e61d464-4943-4e97-973a-84673c1aaa87'}]}
 
         dataset, showcase = generate_dataset_and_showcase('http://xxx/', TestMIMU.layersdata[1])
         assert dataset == {'name': 'mimu-myanmar-2002-2014-forest-cover-change', 'title': 'Myanmar 2002-2014 Forest Cover Change',
                            'notes': 'A Landsat-based classification of Myanmar’s forest cover\n\nLAND COVER CLASSES',
                            'maintainer': '196196be-6037-4488-8b71-d786adf4c081', 'owner_org': 'bde18602-2e92-462a-8e88-a0018a7b13f9', 'dataset_date': '02/12/2019',
-                           'data_update_frequency': '-2', 'subnational': '1', 'groups': [{'name': 'mmr'}], 'tags': [{'name': 'land use and land cover', 'vocabulary_id': '4e61d464-4943-4e97-973a-84673c1aaa87'}]}
+                           'data_update_frequency': '-2', 'subnational': '1', 'groups': [{'name': 'mmr'}], 'tags': [{'name': 'geodata', 'vocabulary_id': '4e61d464-4943-4e97-973a-84673c1aaa87'}, {'name': 'land use and land cover', 'vocabulary_id': '4e61d464-4943-4e97-973a-84673c1aaa87'}]}
         resources = dataset.get_resources()
         assert resources == [{'name': 'Myanmar 2002-2014 Forest Cover Change shapefile', 'url': 'http://xxx/geoserver/wfs?format_options=charset:UTF-8&typename=geonode%3Amyan_lvl2_smoothed_dec2015_resamp&outputFormat=SHAPE-ZIP&version=1.0.0&service=WFS&request=GetFeature',
                               'description': 'Zipped Shapefile. A Landsat-based classification of Myanmar’s forest cover', 'format': 'zipped shapefile', 'resource_type': 'api', 'url_type': 'api'},
@@ -95,4 +95,4 @@ class TestMIMU:
         assert showcase == {'name': 'mimu-myanmar-2002-2014-forest-cover-change-showcase', 'title': 'Myanmar 2002-2014 Forest Cover Change',
                             'notes': 'A Landsat-based classification of Myanmar’s forest cover', 'url': 'http://geonode.themimu.info/layers/geonode%3Amyan_lvl2_smoothed_dec2015_resamp',
                             'image_url': 'http://geonode.themimu.info/uploaded/thumbs/layer-5801f3fa-2ee9-11e9-8d0e-42010a80000c-thumb.png',
-                            'tags': [{'name': 'land use and land cover', 'vocabulary_id': '4e61d464-4943-4e97-973a-84673c1aaa87'}]}
+                            'tags': [{'name': 'geodata', 'vocabulary_id': '4e61d464-4943-4e97-973a-84673c1aaa87'}, {'name': 'land use and land cover', 'vocabulary_id': '4e61d464-4943-4e97-973a-84673c1aaa87'}]}

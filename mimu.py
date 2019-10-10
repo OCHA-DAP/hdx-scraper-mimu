@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 """
-SCRAPERNAME:
-------------
+MIMU:
+----
 
 Reads MIMU JSON and creates datasets.
 
@@ -75,7 +75,7 @@ def generate_dataset_and_showcase(base_url, layerdata):
             tag = 'land use and land cover'
     if tag in tag_mapping:
         tag = tag_mapping[tag]
-    tags = [tag]
+    tags = ['geodata', tag]
     dataset.add_tags(tags)
     srid = quote_plus(layerdata['srid'])
     typename = layerdata['detail_url'].rsplit('/', 1)[-1]
