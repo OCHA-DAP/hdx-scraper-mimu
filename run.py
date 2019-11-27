@@ -24,16 +24,12 @@ def main():
     with Download() as downloader:
         base_url = Configuration.read()['base_url']
         geonodetohdx = GeoNodeToHDX(base_url, downloader)
-        layers = geonodetohdx.get_layers()
-        logger.info('Number of datasets to upload: %d' % len(layers))
-        for layer in layers:
-            dataset, showcase = geonodetohdx.generate_dataset_and_showcase('MMR', layer, '196196be-6037-4488-8b71-d786adf4c081', 'bde18602-2e92-462a-8e88-a0018a7b13f9', 'MIMU')
-            if dataset:
-                dataset.update_from_yaml()
-                dataset.create_in_hdx(remove_additional_resources=True, hxl_update=False)
-                showcase.create_in_hdx()
-                showcase.add_dataset(dataset)
+        countrydata = {'iso3': 'MMR', 'name': 'Myanmar', 'layers': None}
+        datasets = geonodetohdx.generate_datasets_and_showcases('196196be-6037-4488-8b71-d786adf4c081',
+                                                                'bde18602-2e92-462a-8e88-a0018a7b13f9', 'MIMU',
+                                                                countrydata=countrydata)
 
+        geonodetohdx.delete_other_datasets(datasets)
 
 if __name__ == '__main__':
     facade(main, user_agent_config_yaml=join(expanduser('~'), '.useragents.yml'), user_agent_lookup=lookup, project_config_yaml=join('config', 'project_configuration.yml'))
