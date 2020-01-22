@@ -40,13 +40,13 @@ def main():
         geonodetohdx = GeoNodeToHDX(base_url, downloader)
         countrydata = {'iso3': 'MMR', 'name': 'Myanmar', 'layers': None}
         metadata = {'maintainerid': '196196be-6037-4488-8b71-d786adf4c081',
-                    'orgid': 'bde18602-2e92-462a-8e88-a0018a7b13f9', 'orgname': 'MIMU'}
+                    'orgid': 'bde18602-2e92-462a-8e88-a0018a7b13f9'}
 
         datasets = geonodetohdx.generate_datasets_and_showcases(metadata, countrydata=countrydata,
                                                                 get_date_from_title=True,
                                                                 process_dataset_name=process_dataset_name,
                                                                 updated_by_script='HDX Scraper: MIMU GeoNode')
-        geonodetohdx.delete_other_datasets(datasets, '196196be-6037-4488-8b71-d786adf4c081', 'MIMU')
+        geonodetohdx.delete_other_datasets(datasets, metadata)
 
 
 if __name__ == '__main__':
