@@ -13,6 +13,7 @@ from hdx.scraper.geonode.geonodetohdx import GeoNodeToHDX
 from hdx.utilities.downloader import Download
 
 from hdx.facades.simple import facade
+from hdx.utilities.text import remove_string
 
 logger = logging.getLogger(__name__)
 
@@ -23,7 +24,7 @@ VERSION_PATTERN = re.compile('[\-\s_]v\d*(-\d*)+')
 def process_dataset_name(name):
     match = VERSION_PATTERN.search(name)
     if match is not None:
-        name = GeoNodeToHDX.remove(name, match.group(0))
+        name = remove_string(name, match.group(0))
     return name
 
 
@@ -42,8 +43,7 @@ def main():
                                                                 'bde18602-2e92-462a-8e88-a0018a7b13f9', 'MIMU',
                                                                 countrydata=countrydata, get_date_from_title=True,
                                                                 process_dataset_name=process_dataset_name)
-#                                                                create_dataset_showcase=create_dataset_showcase)
-        geonodetohdx.delete_other_datasets(datasets)
+        geonodetohdx.delete_other_datasets(datasets, '196196be-6037-4488-8b71-d786adf4c081', 'MIMU')
 
 
 if __name__ == '__main__':
