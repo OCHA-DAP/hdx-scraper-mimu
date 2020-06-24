@@ -36,7 +36,9 @@ def main():
     """Generate dataset and create it in HDX"""
 
     with Download() as downloader:
-        base_url = Configuration.read()['base_url']
+        configuration = Configuration.read()
+        base_url = configuration['base_url']
+        dataset_tags_mapping = configuration['dataset_tags_mapping']
         geonodetohdx = GeoNodeToHDX(base_url, downloader)
         countrydata = {'iso3': 'MMR', 'name': 'Myanmar', 'layers': None}
         metadata = {'maintainerid': '196196be-6037-4488-8b71-d786adf4c081',
@@ -45,6 +47,7 @@ def main():
         datasets = geonodetohdx.generate_datasets_and_showcases(metadata, countrydata=countrydata,
                                                                 get_date_from_title=True,
                                                                 process_dataset_name=process_dataset_name,
+                                                                dataset_tags_mapping=dataset_tags_mapping,
                                                                 updated_by_script='HDX Scraper: MIMU GeoNode')
         geonodetohdx.delete_other_datasets(datasets, metadata)
 
