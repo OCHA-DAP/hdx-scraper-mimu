@@ -6,7 +6,6 @@ Top level script. Calls other functions that generate datasets that this script 
 """
 import logging
 import re
-import uuid
 from os.path import join, expanduser
 
 from hdx.hdx_configuration import Configuration
@@ -46,8 +45,7 @@ def main():
         datasets = geonodetohdx.generate_datasets_and_showcases(metadata, countrydata=countrydata,
                                                                 get_date_from_title=True,
                                                                 process_dataset_name=process_dataset_name,
-                                                                updated_by_script='HDX Scraper: MIMU GeoNode',
-                                                                batch=uuid.uuid1())
+                                                                updated_by_script='HDX Scraper: MIMU GeoNode')
         geonodetohdx.delete_other_datasets(datasets, metadata)
 
 
