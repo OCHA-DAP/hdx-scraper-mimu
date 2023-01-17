@@ -2,10 +2,10 @@
 base_url: "https://geonode.themimu.info"
 dataset_tags_mapping:
   "mimu-geonode-myanmar-national-boundary-mimu":
-    - "common operational dataset - cod"
+    - "administrative boundaries-divisions"
   "mimu-geonode-myanmar-state-and-region-boundaries-mimu":
-    - "common operational dataset - cod"
+    - "administrative boundaries-divisions"
   "mimu-geonode-myanmar-state-and-region-boundaries-with-sub-regions-mimu":
-    - "common operational dataset - cod"
+    - "administrative boundaries-divisions"
   "mimu-geonode-myanmar-district-boundaries-mimu":
-    - "common operational dataset - cod"
+    - "administrative boundaries-divisions"
