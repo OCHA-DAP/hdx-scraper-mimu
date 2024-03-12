@@ -1,7 +1,2 @@
 # Collector specific configuration
 base_url: "https://geonode.themimu.info"
-dataset_codlevel_mapping:
-  "mimu-geonode-myanmar-national-boundary-mimu": "cod-standard"
-  "mimu-geonode-myanmar-state-and-region-boundaries-mimu": "cod-standard"
-  "mimu-geonode-myanmar-state-and-region-boundaries-with-sub-regions-mimu": "cod-standard"
-  "mimu-geonode-myanmar-district-boundaries-mimu": "cod-standard"

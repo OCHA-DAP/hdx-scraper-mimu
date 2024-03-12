@@ -36,7 +36,6 @@ def main():
     with Download() as downloader:
         configuration = Configuration.read()
         base_url = configuration["base_url"]
-        dataset_codlevel_mapping = configuration["dataset_codlevel_mapping"]
         geonodetohdx = GeoNodeToHDX(base_url, downloader)
         countrydata = {"iso3": "MMR", "name": "Myanmar", "layers": None}
         metadata = {
@@ -50,7 +49,6 @@ def main():
             get_date_from_title=True,
             process_dataset_name=process_dataset_name,
             updated_by_script="HDX Scraper: MIMU GeoNode",
-            dataset_codlevel_mapping=dataset_codlevel_mapping,
         )
         geonodetohdx.delete_other_datasets(datasets, metadata)
 
