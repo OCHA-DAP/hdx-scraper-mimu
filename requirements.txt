@@ -1,1 +1,1 @@
--r docker-requirements.txt
+hdx-scraper-geonode==1.5.3
